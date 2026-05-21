@@ -1,9 +1,9 @@
-// color design tokens export
+// DataPulse — Teal + Orange color palette
 export const tokensDark = {
   grey: {
-    0: "#ffffff", // manually adjusted
-    10: "#f6f6f6", // manually adjusted
-    50: "#f0f0f0", // manually adjusted
+    0: "#ffffff",
+    10: "#f6f6f6",
+    50: "#f0f0f0",
     100: "#e0e0e0",
     200: "#c2c2c2",
     300: "#a3a3a3",
@@ -13,36 +13,35 @@ export const tokensDark = {
     700: "#3d3d3d",
     800: "#292929",
     900: "#141414",
-    1000: "#000000", // manually adjusted
+    1000: "#000000",
   },
   primary: {
-    // blue
-    100: "#d3d4de",
-    200: "#a6a9be",
-    300: "#7a7f9d",
-    400: "#4d547d",
-    500: "#21295c",
-    600: "#191F45", // manually adjusted
-    700: "#141937",
-    800: "#0d1025",
-    900: "#070812",
+    // Deep Teal
+    100: "#cce8e8",
+    200: "#99d1d1",
+    300: "#66b9b9",
+    400: "#33a2a2",
+    500: "#008b8b", // core teal
+    600: "#006f6f",
+    700: "#005353",
+    800: "#003838",
+    900: "#001c1c",
   },
   secondary: {
-    // yellow
-    50: "#f0f0f0", // manually adjusted
-    100: "#fff6e0",
-    200: "#ffedc2",
-    300: "#ffe3a3",
-    400: "#ffda85",
-    500: "#ffd166",
-    600: "#cca752",
-    700: "#997d3d",
-    800: "#665429",
-    900: "#332a14",
+    // Vibrant Orange
+    50: "#fff4ec",
+    100: "#ffe9d9",
+    200: "#ffd3b3",
+    300: "#ffbd8d",
+    400: "#ffa767",
+    500: "#ff9141", // core orange
+    600: "#cc7434",
+    700: "#995727",
+    800: "#663a1a",
+    900: "#331d0d",
   },
 };
 
-// function that reverses the color palette
 function reverseTokens(tokensDark) {
   const reversedTokens = {};
   Object.entries(tokensDark).forEach(([key, val]) => {
@@ -59,14 +58,12 @@ function reverseTokens(tokensDark) {
 }
 export const tokensLight = reverseTokens(tokensDark);
 
-// mui theme settings
 export const themeSettings = (mode) => {
   return {
     palette: {
       mode: mode,
       ...(mode === "dark"
         ? {
-            // palette values for dark mode
             primary: {
               ...tokensDark.primary,
               main: tokensDark.primary[400],
@@ -81,12 +78,11 @@ export const themeSettings = (mode) => {
               main: tokensDark.grey[500],
             },
             background: {
-              default: tokensDark.primary[600],
-              alt: tokensDark.primary[500],
+              default: tokensDark.primary[700], // dark teal bg
+              alt: tokensDark.primary[600],
             },
           }
         : {
-            // palette values for light mode
             primary: {
               ...tokensLight.primary,
               main: tokensDark.grey[50],
@@ -108,32 +104,14 @@ export const themeSettings = (mode) => {
           }),
     },
     typography: {
-      fontFamily: ["Inter", "sans-serif"].join(","),
+      fontFamily: ["Poppins", "sans-serif"].join(","), // changed from Inter
       fontSize: 12,
-      h1: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 40,
-      },
-      h2: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 32,
-      },
-      h3: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 24,
-      },
-      h4: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 20,
-      },
-      h5: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 16,
-      },
-      h6: {
-        fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 14,
-      },
+      h1: { fontFamily: ["Poppins", "sans-serif"].join(","), fontSize: 40 },
+      h2: { fontFamily: ["Poppins", "sans-serif"].join(","), fontSize: 32 },
+      h3: { fontFamily: ["Poppins", "sans-serif"].join(","), fontSize: 24 },
+      h4: { fontFamily: ["Poppins", "sans-serif"].join(","), fontSize: 20 },
+      h5: { fontFamily: ["Poppins", "sans-serif"].join(","), fontSize: 16 },
+      h6: { fontFamily: ["Poppins", "sans-serif"].join(","), fontSize: 14 },
     },
   };
 };
