@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
+import KPITicker from "components/KPITicker";
 import { useGetUserQuery } from "state/api";
 
 const Layout = () => {
@@ -27,6 +28,8 @@ const Layout = () => {
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />
+        {/* Extra Feature #2: KPI Ticker bar */}
+        <KPITicker />
         <Outlet />
       </Box>
     </Box>
