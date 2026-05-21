@@ -34,62 +34,20 @@ import FlexBetween from "./FlexBetween";
 import profileImage from "assets/profile.jpeg";
 
 const navItems = [
-  {
-    text: "Dashboard",
-    icon: <HomeOutlined />,
-  },
-  {
-    text: "Client Facing",
-    icon: null,
-  },
-  {
-    text: "Products",
-    icon: <ShoppingCartOutlined />,
-  },
-  {
-    text: "Customers",
-    icon: <Groups2Outlined />,
-  },
-  {
-    text: "Transactions",
-    icon: <ReceiptLongOutlined />,
-  },
-  {
-    text: "Geography",
-    icon: <PublicOutlined />,
-  },
-  {
-    text: "Sales",
-    icon: null,
-  },
-  {
-    text: "Overview",
-    icon: <PointOfSaleOutlined />,
-  },
-  {
-    text: "Daily",
-    icon: <TodayOutlined />,
-  },
-  {
-    text: "Monthly",
-    icon: <CalendarMonthOutlined />,
-  },
-  {
-    text: "Breakdown",
-    icon: <PieChartOutlined />,
-  },
-  {
-    text: "Management",
-    icon: null,
-  },
-  {
-    text: "Admin",
-    icon: <AdminPanelSettingsOutlined />,
-  },
-  {
-    text: "Performance",
-    icon: <TrendingUpOutlined />,
-  },
+  { text: "Dashboard", icon: <HomeOutlined /> },
+  { text: "Analytics", icon: null },          // renamed from "Client Facing"
+  { text: "Products", icon: <ShoppingCartOutlined /> },
+  { text: "Customers", icon: <Groups2Outlined /> },
+  { text: "Transactions", icon: <ReceiptLongOutlined /> },
+  { text: "Geography", icon: <PublicOutlined /> },
+  { text: "Revenue", icon: null },             // renamed from "Sales"
+  { text: "Overview", icon: <PointOfSaleOutlined /> },
+  { text: "Daily", icon: <TodayOutlined /> },
+  { text: "Monthly", icon: <CalendarMonthOutlined /> },
+  { text: "Breakdown", icon: <PieChartOutlined /> },
+  { text: "Team", icon: null },                // renamed from "Management"
+  { text: "Admin", icon: <AdminPanelSettingsOutlined /> },
+  { text: "Performance", icon: <TrendingUpOutlined /> },
 ];
 
 const Sidebar = ({
@@ -121,7 +79,7 @@ const Sidebar = ({
             "& .MuiDrawer-paper": {
               color: theme.palette.secondary[200],
               backgroundColor: theme.palette.background.alt,
-              boxSixing: "border-box",
+              boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
             },
@@ -131,8 +89,23 @@ const Sidebar = ({
             <Box m="1.5rem 2rem 2rem 3rem">
               <FlexBetween color={theme.palette.secondary.main}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
+                  {/* Extra Feature #1: animated pulse dot beside brand name */}
+                  <Box
+                    sx={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: "50%",
+                      backgroundColor: theme.palette.secondary[300],
+                      animation: "pulse 1.8s infinite",
+                      "@keyframes pulse": {
+                        "0%": { opacity: 1, transform: "scale(1)" },
+                        "50%": { opacity: 0.4, transform: "scale(1.4)" },
+                        "100%": { opacity: 1, transform: "scale(1)" },
+                      },
+                    }}
+                  />
                   <Typography variant="h4" fontWeight="bold">
-                    ECOMVISION
+                    DATAPULSE
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -223,7 +196,7 @@ const Sidebar = ({
               <SettingsOutlined
                 sx={{
                   color: theme.palette.secondary[300],
-                  fontSize: "25px ",
+                  fontSize: "25px",
                 }}
               />
             </FlexBetween>
